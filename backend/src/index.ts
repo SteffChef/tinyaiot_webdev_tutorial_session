@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { Pool } from 'pg';
+// import { Pool } from 'pg';
 
 dotenv.config();
 
@@ -16,15 +16,15 @@ app.get('/api/hello', (req: Request, res: Response) => {
   res.json({ message: 'Hello from the backend!' });
 });
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_URL,
+// });
 
 // Participants Route
 app.get('/api/participants', async (req: Request, res: Response) => {
   try {
-    const result = await pool.query('SELECT * FROM participants');
-    res.json(result.rows);
+    // const result = await pool.query(INSERT QUERY);
+    // res.json(result.rows);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database error' });
